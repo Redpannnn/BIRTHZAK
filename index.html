@@ -123,7 +123,9 @@ body::before{
 #sec2.live{visibility:visible;opacity:1;transition:opacity 1.1s ease}
 
 .blk{width:min(660px,92%);margin:120px auto;text-align:center;position:relative}
-.blk:first-child{margin-top:20px}
+.blk:first-child{margin-top:20px;margin-bottom:24px}
+/* tarik blok kalender ke atas, langsung di bawah judul "favorite person was born" */
+.blk:has(.cal-outer){margin-top:24px}
 
 .eyebrow{letter-spacing:.42em;font-size:.95rem;color:#d8b877;text-transform:uppercase;margin-bottom:20px;font-weight:600}
 /* judul pembuka: font serif biasa, bukan script */
@@ -135,44 +137,44 @@ body::before{
 .orn span{width:64px;height:1px;background:rgba(244,233,210,.35)}
 .orn svg{width:14px;height:14px;fill:#e5637d;animation:beat 1.8s infinite}
 
-/* --- kalender --- */
-.cal-outer{display:inline-block;position:relative;padding:44px 52px 40px}
+/* --- kalender (scaled to 80% / centered on page) --- */
+.cal-outer{display:inline-block;position:relative;padding:35px 42px 32px}
 .cal-card{
-  position:relative;width:330px;max-width:84vw;background:#f8f1e1;color:#42395c;
-  border-radius:14px;padding:22px 20px 24px;transform:rotate(-1.6deg);
+  position:relative;width:264px;max-width:84vw;background:#f8f1e1;color:#42395c;
+  border-radius:14px;padding:2px 16px 16px;transform:rotate(-1.6deg);
   box-shadow:0 24px 50px rgba(0,0,0,.45);transition:transform .4s;
 }
 .cal-card:hover{transform:rotate(0)}
 .tape{position:absolute;width:76px;height:22px;background:rgba(233,220,180,.5);box-shadow:0 1px 2px rgba(0,0,0,.2);z-index:5}
 .tape.t1{top:-11px;left:-20px;transform:rotate(-38deg)}
 .tape.t2{top:-11px;right:-20px;transform:rotate(38deg)}
-.cal-head{display:flex;align-items:baseline;justify-content:center;gap:10px;margin-bottom:14px}
-.cal-head h3{font-weight:600;font-size:1.6rem;letter-spacing:.06em}
+.cal-head{display:flex;align-items:baseline;justify-content:center;gap:8px;margin-bottom:11px}
+.cal-head h3{font-weight:600;font-size:1.28rem;letter-spacing:.06em}
 .cal-head svg{width:13px;fill:#e5637d;animation:beat 1.8s infinite}
-.cal-wd,.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
-.cal-wd span{font-size:.72rem;letter-spacing:.08em;color:#9a8fb0;font-weight:600;text-transform:uppercase;padding:6px 0}
+.cal-wd,.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.cal-wd span{font-size:.58rem;letter-spacing:.08em;color:#9a8fb0;font-weight:600;text-transform:uppercase;padding:5px 0}
 .cal-grid .cal-d{
   aspect-ratio:1;display:grid;place-items:center;border-radius:50%;
-  font-size:1rem;color:#5a5078;transition:background .2s;
+  font-size:.8rem;color:#5a5078;transition:background .2s;
 }
 .cal-d:hover{background:rgba(229,99,125,.12)}
 .cal-d.bday{background:#e5637d;color:#fdf6e3;font-weight:600;position:relative;animation:ring 2s infinite}
 @keyframes ring{0%{box-shadow:0 0 0 0 rgba(229,99,125,.5)}70%{box-shadow:0 0 0 12px rgba(229,99,125,0)}100%{box-shadow:0 0 0 0 rgba(229,99,125,0)}}
-.bh{position:absolute;top:-14px;left:50%;width:15px;height:15px;margin-left:-7.5px}
-.bh svg{width:15px;height:15px;fill:#ff7d9e;animation:beat 1.5s infinite}
-.cal-orbit{position:absolute;left:50%;top:50%;width:0;height:0;z-index:-1;--orbR:200px;animation:orbit 22s linear infinite}
+.bh{position:absolute;top:-14px;left:50%;width:12px;height:12px;margin-left:-6px}
+.bh svg{width:12px;height:12px;fill:#ff7d9e;animation:beat 1.5s infinite}
+.cal-orbit{position:absolute;left:50%;top:50%;width:0;height:0;z-index:-1;--orbR:160px;animation:orbit 22s linear infinite}
 .cal-arm{position:absolute;left:0;top:0;width:var(--orbR);height:0}
 .cal-moon{
-  position:absolute;left:calc(var(--orbR) - 16px);top:-16px;width:32px;height:32px;
+  position:absolute;left:calc(var(--orbR) - 13px);top:-13px;width:26px;height:26px;
   fill:#e9d8a8;animation:spinRev 22s linear infinite;
   filter:drop-shadow(0 0 10px rgba(238,222,170,.35));
 }
 @keyframes orbit{to{transform:rotate(360deg)}}
 @keyframes spinRev{from{transform:rotate(0)}to{transform:rotate(-360deg)}}
-.cspark{position:absolute;width:14px;fill:#e6c37f;animation:twk 2.6s ease-in-out infinite}
-.cspark.s1{top:6px;left:-34px}
-.cspark.s2{top:56%;right:-40px;width:11px;animation-delay:.8s}
-.cspark.s3{bottom:-6px;left:8%;width:10px;animation-delay:1.5s}
+.cspark{position:absolute;width:11px;fill:#e6c37f;animation:twk 2.6s ease-in-out infinite}
+.cspark.s1{top:5px;left:-27px}
+.cspark.s2{top:56%;right:-32px;width:9px;animation-delay:.8s}
+.cspark.s3{bottom:-5px;left:8%;width:8px;animation-delay:1.5s}
 @keyframes twk{0%,100%{opacity:.25;transform:scale(.7) rotate(0)}50%{opacity:1;transform:scale(1.15) rotate(22deg)}}
 
 /* --- pemutar musik --- */
@@ -218,31 +220,31 @@ body::before{
   transform:translateY(-104%);transition:transform 1s cubic-bezier(.2,.85,.3,1.06);
 }
 .photo-print.printed{transform:translateY(0)}
-.photo-print img{width:100%;height:150px;object-fit:cover;object-position:50% 18%;display:block;filter:contrast(1.06) saturate(1.05)}
+.photo-print img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 18%;display:block;filter:contrast(1.06) saturate(1.05)}
 .pp-cap{display:block;font-family:'Caveat',cursive;font-size:1rem;color:#6b5d86;padding-top:5px}
 
-/* --- buku catatan --- */
+/* --- buku catatan (scaled to 80%) --- */
 .notebook{
-  position:relative;width:min(470px,92%);margin:44px auto 0;background:#fdf8ec;color:#4a4166;
-  border-radius:8px;padding:34px 30px 30px 34px;transform:rotate(1.1deg);
+  position:relative;width:min(376px,92%);margin:35px auto 0;background:#fdf8ec;color:#4a4166;
+  border-radius:8px;padding:27px 24px 24px 27px;transform:rotate(1.1deg);
   box-shadow:0 24px 50px rgba(0,0,0,.45);text-align:left;
 }
-.nb-rings{position:absolute;top:-13px;left:0;right:0;display:flex;justify-content:space-evenly;padding:0 30px}
-.nb-rings i{width:16px;height:32px;border:3px solid #b9aa8b;border-radius:10px}
-.nb-title{font-family:'Parisienne',cursive;font-size:1.9rem;color:#c94f6d;text-align:center;margin-bottom:12px}
+.nb-rings{position:absolute;top:-10px;left:0;right:0;display:flex;justify-content:space-evenly;padding:0 24px}
+.nb-rings i{width:13px;height:26px;border:2.4px solid #b9aa8b;border-radius:10px}
+.nb-title{font-family:'Parisienne',cursive;font-size:1.52rem;color:#c94f6d;text-align:center;margin-bottom:10px}
 .nb-body{
-  --nblh:30px;
-  font-family:'Caveat',cursive;font-size:1.32rem;line-height:var(--nblh);color:#4a4166;
+  --nblh:24px;
+  font-family:'Caveat',cursive;font-size:1.06rem;line-height:var(--nblh);color:#4a4166;
   background-image:repeating-linear-gradient(transparent 0, transparent calc(var(--nblh) - 1px), rgba(96,84,140,.16) calc(var(--nblh) - 1px), rgba(96,84,140,.16) var(--nblh));
 }
 .nb-body p{margin:0 0 var(--nblh)}
 .nb-body p:last-of-type{margin-bottom:0}
-.nb-heart{width:18px;fill:#e5637d;float:right;margin-top:8px;animation:beat 1.8s infinite}
+.nb-heart{width:14px;fill:#e5637d;float:right;margin-top:6px;animation:beat 1.8s infinite}
 
 /* --- kue (berdetak) --- */
 .beat-wrap{display:inline-block;animation:heartbeat 1.7s ease-in-out infinite}
 @keyframes heartbeat{0%,100%{transform:scale(1)}14%{transform:scale(1.06)}28%{transform:scale(1)}42%{transform:scale(1.1)}70%{transform:scale(1)}}
-.cake-wrap{cursor:pointer;transition:transform .3s}
+.cake-wrap{cursor:pointer;transition:transform .3s;display:flex;justify-content:center;width:100%}
 .cake-wrap:hover{transform:translateY(-5px)}
 .cake-wrap:active{transform:scale(.97)}
 .cake{width:min(250px,72vw);display:block}
@@ -304,39 +306,63 @@ body::before{
 .lm-sign{font-family:'Caveat',cursive;font-size:1.4rem;text-align:right;margin-top:14px;color:#4a4166}
 
 /* --- you are my moon --- */
-.moon-blk{width:100%;max-width:none;min-height:470px;display:grid;place-items:center;overflow:hidden;padding:40px 20px}
-.moon-blk .disp-script{position:relative;z-index:2;font-size:clamp(2.5rem,8vw,4.4rem);margin-top:60px}
+.moon-blk{width:100%;max-width:none;min-height:190px;display:grid;place-items:center;overflow:hidden;position:relative;padding:20px 20px 18px;margin-bottom:0}
+.moon-blk+.blk{margin-top:0}
+/* heading you-are-my-moon, polaroid, rocket: rapat ke bawah bulan */
+.moon-blk+.blk{margin-bottom:0}
+.moon-blk+.blk+.blk{margin-top:0;margin-bottom:0}
+.moon-blk+.blk+.blk+.blk{margin-top:0}
+.moon-blk .disp-script{position:relative;z-index:3;font-size:clamp(2.5rem,8vw,4.4rem);margin:0;text-shadow:0 2px 30px rgba(0,0,0,.55)}
+/* heading "You are my moon" terpisah (besar, tidak nyenggol bulan) */
+.moon-head .disp-script{font-size:clamp(3rem,10vw,5.6rem);margin:0;text-shadow:0 2px 30px rgba(0,0,0,.55)}
 .moon{
-  position:absolute;left:9%;top:9%;z-index:1;border-radius:50%;
-  width:clamp(96px,17vw,150px);height:clamp(96px,17vw,150px);
+  position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);z-index:2;border-radius:50%;
+  width:clamp(108px,18vw,160px);height:clamp(108px,18vw,160px);
   background:
-    radial-gradient(circle at 30% 32%, rgba(160,130,90,.28) 0 9%, transparent 10%),
-    radial-gradient(circle at 62% 55%, rgba(160,130,90,.22) 0 7%, transparent 8%),
-    radial-gradient(circle at 45% 72%, rgba(160,130,90,.18) 0 6%, transparent 7%),
-    radial-gradient(circle at 70% 26%, rgba(160,130,90,.16) 0 5%, transparent 6%),
-    radial-gradient(circle at 35% 35%, #fcf5e0, #edddba 62%, #d8c193 100%);
-  box-shadow:0 0 70px 22px rgba(244,230,196,.14);
-  animation:moonDrift 18s ease-in-out infinite alternate;
+    radial-gradient(circle at 28% 30%, rgba(140,110,70,.32) 0 7%, transparent 8%),
+    radial-gradient(circle at 62% 50%, rgba(140,110,70,.26) 0 5%, transparent 7%),
+    radial-gradient(circle at 42% 68%, rgba(140,110,70,.22) 0 4%, transparent 6%),
+    radial-gradient(circle at 70% 22%, rgba(140,110,70,.18) 0 3%, transparent 5%),
+    radial-gradient(circle at 20% 55%, rgba(140,110,70,.16) 0 2.5%, transparent 4%),
+    radial-gradient(circle at 35% 35%, #fdf6e4, #edddba 60%, #d4bd92 100%);
+  box-shadow:0 0 50px 15px rgba(252,242,200,.20),0 0 110px 35px rgba(252,242,200,.09),inset -10px -12px 32px rgba(100,75,40,.28);
+  animation:moonFloat 7s ease-in-out infinite alternate;
 }
-@keyframes moonDrift{from{transform:translate(0,0)}to{transform:translate(8vw,18px)}}
-.rocket{position:absolute;left:0;top:50%;width:64px;margin-top:-34px;z-index:1;animation:rocketFly 9s linear 1.5s infinite;opacity:0}
-@keyframes rocketFly{
-  0%{transform:translate(-100px,60px) rotate(-38deg);opacity:0}
-  8%{opacity:1}
-  50%{transform:translate(48vw,-40px) rotate(-32deg)}
-  92%{opacity:1}
-  100%{transform:translate(105vw,-140px) rotate(-26deg);opacity:0}
+.moon::after{content:'';position:absolute;inset:-22%;border-radius:50%;background:radial-gradient(circle,rgba(252,242,200,.10),transparent 65%);pointer-events:none}
+@keyframes moonFloat{from{transform:translate(-50%,-53%)}to{transform:translate(-50%,-47%)}}
+.rocket{position:absolute;left:-10%;top:62%;width:60px;z-index:3;filter:drop-shadow(0 4px 10px rgba(0,0,0,.35));animation:rocketArc 11s linear 1s infinite;opacity:0}
+@keyframes rocketArc{
+  0%{left:-10%;top:64%;opacity:0;transform:rotate(-22deg)}
+  6%{opacity:1}
+  45%{left:48%;top:22%;transform:rotate(-13deg)}
+  90%{opacity:1}
+  100%{left:108%;top:10%;opacity:0;transform:rotate(-8deg)}
 }
-.rflame{transform-origin:32px 40px;animation:flick .22s ease-in-out infinite alternate}
-.mspark{position:absolute;width:13px;fill:#e6c37f;animation:twk 3s ease-in-out infinite;z-index:1}
-.mspark.a{top:16%;right:18%}
-.mspark.b{bottom:18%;left:20%;width:10px;animation-delay:1s}
-.mspark.c{top:60%;right:9%;width:11px;animation-delay:1.9s}
+.rflame{transform-origin:32px 42px;animation:flick .18s ease-in-out infinite alternate}
+.mstar{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff6e0;box-shadow:0 0 5px rgba(255,246,224,.85);z-index:2;animation:mTwk 2.6s ease-in-out infinite}
+.mstar.s1{left:14%;top:20%;animation-delay:0s}
+.mstar.s2{left:80%;top:30%;width:2.5px;height:2.5px;animation-delay:.6s}
+.mstar.s3{left:24%;top:62%;animation-delay:1.2s}
+.mstar.s4{left:72%;top:64%;width:1.5px;height:1.5px;animation-delay:1.8s}
+.mstar.s5{left:50%;top:14%;width:2.5px;height:2.5px;animation-delay:.3s}
+.mstar.s6{left:88%;top:52%;animation-delay:1.5s}
+@keyframes mTwk{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1.3)}}
+
+/* --- rocket zone (bawah polaroid) --- */
+.rocket-zone{position:relative;width:100%;max-width:none;min-height:180px;overflow:hidden;margin:20px auto 0;padding:0}
+.rocket-zone .rocket{position:absolute;left:-12%;top:50%;width:64px;z-index:2;filter:drop-shadow(0 4px 10px rgba(0,0,0,.35));animation:rocketArcLow 10s linear 1.2s infinite;opacity:0}
+@keyframes rocketArcLow{
+  0%{left:-12%;top:78%;opacity:0;transform:rotate(-18deg)}
+  7%{opacity:1}
+  50%{left:48%;top:30%;transform:rotate(-10deg)}
+  90%{opacity:1}
+  100%{left:112%;top:6%;opacity:0;transform:rotate(-4deg)}
+}
 
 /* --- polaroid --- */
-.pols{display:flex;flex-wrap:wrap;justify-content:center;gap:30px 26px;margin-top:46px;max-width:720px;margin-left:auto;margin-right:auto}
+.pols{display:flex;flex-wrap:wrap;justify-content:center;gap:30px 26px;margin-top:42px;max-width:720px;margin-left:auto;margin-right:auto}
 .pol{
-  position:relative;width:168px;background:#fbf6ea;padding:10px 10px 12px;
+  position:relative;width:168px;background:#fbf6ea;padding:10px 10px 10px;
   box-shadow:0 14px 30px rgba(0,0,0,.42);
   transform:rotate(var(--rot)) translateY(var(--ty,0));
   transition:transform .35s cubic-bezier(.22,.9,.3,1.2),box-shadow .35s;
@@ -344,13 +370,13 @@ body::before{
 }
 .pol:hover{transform:rotate(0) translateY(calc(var(--ty,0px) - 8px)) scale(1.05);box-shadow:0 22px 44px rgba(0,0,0,.5);z-index:3}
 .pol .tape{left:50%;top:-11px;transform:translateX(-50%) rotate(var(--trot,-3deg))}
-.pol img{width:100%;height:148px;object-fit:cover;display:block;background:#d8d2c4}
-.pol figcaption{font-family:'Caveat',cursive;font-size:1.18rem;color:#6b5d86;padding-top:8px}
-.pol:nth-child(1) img{object-position:50% 12%;transform:scale(1.12)}
-.pol:nth-child(2) img{filter:sepia(.28) contrast(1.06);object-position:50% 30%}
-.pol:nth-child(3) img{filter:saturate(.85) brightness(1.04)}
-.pol:nth-child(4) img{filter:contrast(1.1) sepia(.16);object-position:50% 25%}
-.pol:nth-child(5) img{filter:grayscale(.4) contrast(1.05)}
+.pol img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 20%;display:block;background:#d8d2c4}
+.pol figcaption{display:none}
+.pol:nth-child(1) img{object-position:50% 18%}
+.pol:nth-child(2) img{filter:sepia(.28) contrast(1.06);object-position:50% 28%}
+.pol:nth-child(3) img{filter:saturate(.85) brightness(1.04);object-position:50% 22%}
+.pol:nth-child(4) img{filter:contrast(1.1) sepia(.16);object-position:50% 20%}
+.pol:nth-child(5) img{filter:grayscale(.4) contrast(1.05);object-position:50% 18%}
 
 /* --- message for u --- */
 .msg-heart{width:.55em;height:.55em;fill:#e5637d;animation:beat 1.8s infinite;margin-left:.1em}
@@ -410,6 +436,22 @@ body::before{
   font-size:clamp(1.7rem,5.2vw,2.3rem);color:#f6b988;margin:12px 0;line-height:1.35;
 }
 
+/* --- one last thing: surat --- */
+.last-letter{
+  position:relative;width:min(520px,92%);margin:38px auto 0;background:#fdf8ec;color:#4a4166;
+  border-radius:8px;padding:36px 28px 28px;transform:rotate(-1deg);
+  box-shadow:0 24px 50px rgba(0,0,0,.45);text-align:left;
+}
+.last-letter p{
+  font-family:'Caveat',cursive;font-size:1.32rem;line-height:1.7;margin-bottom:14px;
+}
+.last-letter p:last-of-type{margin-bottom:0}
+.last-letter .hl{
+  font-family:'Parisienne',cursive;font-size:clamp(1.5rem,5vw,1.9rem);
+  color:#c94f6d;line-height:1.35;margin:10px 0;display:block;
+}
+.last-letter .lm-sign{font-family:'Caveat',cursive;font-size:1.3rem;text-align:right;margin-top:14px;color:#4a4166}
+
 /* --- kado + kembang api --- */
 .gift-zone{padding-bottom:80px}
 .finale-msg{display:block;opacity:0;transform:translateY(16px);transition:opacity 1.2s ease,transform 1.2s ease;margin-bottom:34px}
@@ -459,18 +501,20 @@ body::before{
 
   #sec2{padding-top:64px}
   .blk{margin:84px auto}
+  .blk:first-child{margin-bottom:18px}
+  .blk:has(.cal-outer){margin-top:18px}
   .eyebrow{letter-spacing:.32em;font-size:.85rem}
   .orn span{width:44px}
 
-  .cal-outer{padding:36px 26px 30px}
-  .cal-card{width:min(320px,84vw);padding:18px 14px 20px}
-  .cal-orbit{--orbR:clamp(140px,44vw,200px)}
-  .cal-head h3{font-size:1.35rem}
-  .cal-wd,.cal-grid{gap:4px}
-  .cal-wd span{font-size:.66rem;letter-spacing:.04em;padding:4px 0}
-  .cal-d{font-size:.95rem}
-  .cspark.s1{left:-22px}
-  .cspark.s2{right:-22px}
+  .cal-outer{padding:29px 21px 24px}
+  .cal-card{width:min(256px,84vw);padding:2px 11px 14px}
+  .cal-orbit{--orbR:clamp(112px,35vw,160px)}
+  .cal-head h3{font-size:1.08rem}
+  .cal-wd,.cal-grid{gap:3px}
+  .cal-wd span{font-size:.53rem;letter-spacing:.04em;padding:3px 0}
+  .cal-d{font-size:.76rem}
+  .cspark.s1{left:-18px}
+  .cspark.s2{right:-18px}
 
   .mus-title{font-size:1.75rem}
   .player{flex-direction:column;gap:16px}
@@ -485,10 +529,10 @@ body::before{
   .print-slot{width:56%;height:224px}
   .pp-cap{font-size:.95rem}
 
-  .notebook{padding:26px 20px 24px 24px}
-  .nb-rings{padding:0 22px}
-  .nb-title{font-size:1.7rem}
-  .nb-body{--nblh:29px;font-size:1.24rem}
+  .notebook{padding:21px 16px 19px 19px}
+  .nb-rings{padding:0 18px}
+  .nb-title{font-size:1.36rem}
+  .nb-body{--nblh:23px;font-size:.99rem}
 
   .env2-zone{margin-top:64px}
   .env2{width:min(270px,78vw);height:176px}
@@ -505,34 +549,37 @@ body::before{
   .stamp{display:none}
   .lm-close{top:10px;right:10px}
 
-  .moon-blk{min-height:420px;padding:30px 16px}
-  .moon{width:86px;height:86px;left:6%;top:7%}
-  .rocket{top:17%;width:52px;margin-top:-28px}
-  .moon-blk .disp-script{margin-top:36px;font-size:clamp(2.2rem,9vw,4.4rem)}
+  .moon-blk{min-height:150px;padding:16px 16px 14px;margin-bottom:0}
+  .moon{width:clamp(96px,26vw,130px);height:clamp(96px,26vw,130px);top:45%}
+  .moon-blk .disp-script{margin:0;font-size:clamp(2.2rem,9vw,4.4rem)}
 
-  .pols{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 16px;max-width:420px}
-  .pol{width:100%}
-  .pol img{height:136px}
-  .pol figcaption{font-size:1.05rem}
+  /* polaroid: 3 atas, 2 bawah (centered) */
+  .pols{display:grid;grid-template-columns:repeat(6,1fr);gap:18px 12px;max-width:420px}
+  .pol{width:100%;grid-column:span 2}
+  .pol:nth-child(4){grid-column:2 / span 2}
+  .pol:nth-child(5){grid-column:4 / span 2}
+  .pol img{height:auto;aspect-ratio:3/4}
+  .pol figcaption{font-size:1rem;padding-top:6px}
+  .rocket-zone{min-height:140px}
+  .rocket-zone .rocket{width:48px}
 
   .msg-card{padding:30px 20px 24px;transform:rotate(-.6deg)}
   .msg-card p{font-size:1.24rem}
 
-  .sunset-frame{aspect-ratio:4/3}
-  .sunset-poem{margin-top:26px}
+  .last-letter{padding:26px 18px 22px}
+  .last-letter p{font-size:1.05rem}
+  .last-letter .hl{font-size:1.35rem}
   .fm-big{font-size:clamp(1.75rem,7vw,3.1rem)}
   .fm-sub{font-size:1.15rem}
   .foot{font-size:.95rem;margin:70px 0 34px}
 }
 @media (max-width:380px){
-  .cal-card{width:min(300px,90vw);padding:16px 12px 18px}
-  .cal-wd span{font-size:.6rem}
-  .cal-d{font-size:.88rem}
+  .cal-card{width:min(240px,90vw);padding:2px 10px 12px}
+  .cal-wd span{font-size:.48rem}
+  .cal-d{font-size:.7rem}
   .env2{width:min(250px,80vw);height:164px}
   .pols{max-width:340px}
-  .pol img{height:124px}
   .print-slot{height:210px}
-  .photo-print img{height:140px}
 }
 @media (max-height:620px) and (orientation:landscape){
   #sec1{gap:14px;padding:14px}
@@ -580,7 +627,7 @@ body::before{
       </div>
     </div>
   </div>
-  <p class="open-hint">Buka sayang !</p>
+  <p class="open-hint">Buka amplopnya !</p>
 </section>
 
 <!-- ================= SECTION 2 ================= -->
@@ -604,7 +651,7 @@ body::before{
       <svg class="cspark s3" aria-hidden="true"><use href="#i-spark"/></svg>
       <div class="cal-card">
         <span class="tape t1"></span><span class="tape t2"></span>
-        <div class="cal-head"><h3>Oktober</h3><svg><use href="#i-heart"/></svg></div>
+        <div class="cal-head"><h3>Oktober</h3></div>
         <div class="cal-wd"><span>Sen</span><span>Sel</span><span>Rab</span><span>Kam</span><span>Jum</span><span>Sab</span><span>Min</span></div>
         <div class="cal-grid" id="calGrid"></div>
       </div>
@@ -634,7 +681,7 @@ body::before{
   <!-- kamera + foto -->
   <div class="blk rv" id="camBlock">
     <h3 class="disp-script" style="font-size:clamp(1.95rem,7vw,3.3rem)">Today is All About You</h3>
-    <p class="hand-sub">dan ini pandangan favoritku setiap hari</p>
+    <p class="hand-sub">I could never get tired of looking at you.</p>
     <div class="cam-zone" id="camZone" role="button" tabindex="0" aria-label="Motret ulang">
       <div class="flash" id="camFlash"></div>
       <svg class="cam" viewBox="0 0 300 170" aria-hidden="true">
@@ -656,7 +703,7 @@ body::before{
       <div class="print-slot">
         <!-- GANTI FOTO DIA DI SINI (src di bawah) -->
         <div class="photo-print grain" id="photoPrint">
-          <img class="ph" src="https://randomuser.me/api/portraits/men/32.jpg" alt="foto zaki" data-seed="zaki-main" loading="lazy">
+          <img class="ph" src="https://imglinkv-3.vercel.app/api/images/cmuwo6ol7gbeaups6/file" alt="foto zaki" data-seed="zaki-main" loading="lazy">
           <span class="pp-cap">12 · 10 — my favorite person</span>
         </div>
       </div>
@@ -734,36 +781,46 @@ body::before{
     </div>
   </div>
 
-  <!-- you are my moon -->
+  <!-- you are my moon: scene (moon + stars only) -->
   <div class="blk moon-blk rv">
     <div class="moon" aria-hidden="true"></div>
-    <svg class="rocket" viewBox="0 0 64 70" aria-hidden="true">
-      <path class="rflame" d="M26 40 C28 48 32 58 32 63 C32 58 36 48 38 40 Z" fill="#ffb35c"/>
-      <path d="M32 4 C41 12 45 25 45 37 L19 37 C19 25 23 12 32 4Z" fill="#f3e9d2"/>
-      <path d="M32 4 C36 8 38.5 14 39.8 21 L24.2 21 C25.5 14 28 8 32 4Z" fill="#e5637d"/>
-      <circle cx="32" cy="29" r="5.5" fill="#2b2338" stroke="#cbb086" stroke-width="2"/>
-      <path d="M19 33 L8 50 L19 45 Z" fill="#e5637d"/>
-      <path d="M45 33 L56 50 L45 45 Z" fill="#e5637d"/>
-    </svg>
-    <svg class="mspark a" aria-hidden="true"><use href="#i-spark"/></svg>
-    <svg class="mspark b" aria-hidden="true"><use href="#i-spark"/></svg>
-    <svg class="mspark c" aria-hidden="true"><use href="#i-spark"/></svg>
+    <span class="mstar s1" aria-hidden="true"></span>
+    <span class="mstar s2" aria-hidden="true"></span>
+    <span class="mstar s3" aria-hidden="true"></span>
+    <span class="mstar s4" aria-hidden="true"></span>
+    <span class="mstar s5" aria-hidden="true"></span>
+    <span class="mstar s6" aria-hidden="true"></span>
+  </div>
+
+  <!-- heading terpisah dari animasi -->
+  <div class="blk rv moon-head">
     <h3 class="disp-script">You are my moon</h3>
-    <p class="hand-sub">dan aku mau ngorbitin kamu, terus-terusan</p>
   </div>
 
   <!-- polaroid (5 foto) -->
   <div class="blk rv">
-    <h3 class="disp-script" style="font-size:clamp(2rem,5.5vw,2.9rem)">my favorite shots of you</h3>
-    <p class="hand-sub">lima potret, satu alasan: kamu</p>
     <div class="pols">
-      <!-- GANTI FOTO-FOTONYA DI SINI (src di tiap img) -->
-      <figure class="pol" style="--rot:-5deg;--ty:8px"><span class="tape" style="--trot:-4deg"></span><img class="ph" src="https://randomuser.me/api/portraits/men/32.jpg" alt="foto zaki" data-seed="zaki1" loading="lazy"><figcaption>my favorite person</figcaption></figure>
-      <figure class="pol" style="--rot:3deg;--ty:-6px"><span class="tape" style="--trot:3deg"></span><img class="ph" src="https://randomuser.me/api/portraits/men/32.jpg" alt="foto zaki" data-seed="zaki2" loading="lazy"><figcaption>my calm</figcaption></figure>
-      <figure class="pol" style="--rot:-2.5deg;--ty:12px"><span class="tape" style="--trot:-2deg"></span><img class="ph" src="https://randomuser.me/api/portraits/men/32.jpg" alt="foto zaki" data-seed="zaki3" loading="lazy"><figcaption>my home</figcaption></figure>
-      <figure class="pol" style="--rot:4.5deg;--ty:-4px"><span class="tape" style="--trot:4deg"></span><img class="ph" src="https://randomuser.me/api/portraits/men/32.jpg" alt="foto zaki" data-seed="zaki4" loading="lazy"><figcaption>my always</figcaption></figure>
-      <figure class="pol" style="--rot:-4deg;--ty:10px"><span class="tape" style="--trot:-5deg"></span><img class="ph" src="https://randomuser.me/api/portraits/men/32.jpg" alt="foto zaki" data-seed="zaki5" loading="lazy"><figcaption>my moon</figcaption></figure>
+      <figure class="pol" style="--rot:-5deg;--ty:8px"><span class="tape" style="--trot:-4deg"></span><img class="ph" src="https://imglinkv-3.vercel.app/api/images/cmuwo6kpxsapplule/file" alt="foto zaki 1" loading="lazy"></figure>
+      <figure class="pol" style="--rot:3deg;--ty:-6px"><span class="tape" style="--trot:3deg"></span><img class="ph" src="https://imglinkv-3.vercel.app/api/images/cmuwo6mprjx2n0z7g/file" alt="foto zaki 2" loading="lazy"></figure>
+      <figure class="pol" style="--rot:-2.5deg;--ty:12px"><span class="tape" style="--trot:-2deg"></span><img class="ph" src="https://imglinkv-3.vercel.app/api/images/cmuwo6qv4e7osr98x/file" alt="foto zaki 3" loading="lazy"></figure>
+      <figure class="pol" style="--rot:4.5deg;--ty:-4px"><span class="tape" style="--trot:4deg"></span><img class="ph" src="https://imglinkv-3.vercel.app/api/images/cmuwo6pok3n2fyl88/file" alt="foto zaki 4" loading="lazy"></figure>
+      <figure class="pol" style="--rot:-4deg;--ty:10px"><span class="tape" style="--trot:-5deg"></span><img class="ph" src="https://imglinkv-3.vercel.app/api/images/cmuwo6ol7gbeaups6/file" alt="foto zaki 5" loading="lazy"></figure>
     </div>
+  </div>
+
+  <!-- rocket: di bawah polaroid -->
+  <div class="blk rv rocket-zone">
+    <svg class="rocket" viewBox="0 0 64 80" aria-hidden="true">
+      <ellipse cx="32" cy="44" rx="6" ry="10" fill="rgba(255,180,100,.25)"/>
+      <path class="rflame" d="M28 42 C30 52 32 66 32 74 C32 66 34 52 36 42 Z" fill="#ffb35c"/>
+      <path class="rflame" d="M29.5 44 C30.5 51 32 60 32 66 C32 60 33.5 51 34.5 44 Z" fill="#fff3c4"/>
+      <path d="M32 4 C41 12 45 25 45 37 L19 37 C19 25 23 12 32 4Z" fill="#f3e9d2"/>
+      <path d="M32 4 C36 8 38.5 14 39.8 21 L24.2 21 C25.5 14 28 8 32 4Z" fill="#e5637d"/>
+      <circle cx="32" cy="29" r="5.5" fill="#2b2338" stroke="#cbb086" stroke-width="2"/>
+      <circle cx="30" cy="27" r="1.5" fill="rgba(255,255,255,.35)"/>
+      <path d="M19 33 L8 50 L19 45 Z" fill="#e5637d"/>
+      <path d="M45 33 L56 50 L45 45 Z" fill="#e5637d"/>
+    </svg>
   </div>
 
   <!-- message for u -->
@@ -776,27 +833,16 @@ body::before{
     </div>
   </div>
 
-  <!-- one last thing: senja -->
+  <!-- one last thing: surat -->
   <div class="blk rv">
     <p class="eyebrow">one last thing</p>
-    <div class="sunset-frame" aria-hidden="true">
-      <div class="sun-scene">
-        <span class="fstar" style="top:9%;left:14%"></span>
-        <span class="fstar" style="top:15%;left:78%;animation-delay:1.2s"></span>
-        <span class="fstar" style="top:6%;left:52%;animation-delay:2s"></span>
-        <div class="cloud c1"></div>
-        <div class="cloud c2"></div>
-        <svg class="bird b1" viewBox="0 0 24 10"><path d="M2 7 Q6 1 11 6 Q16 1 20 7"/></svg>
-        <svg class="bird b2" viewBox="0 0 24 10"><path d="M2 7 Q6 1 11 6 Q16 1 20 7"/></svg>
-        <div class="sun"></div>
-        <div class="sea"></div>
-      </div>
+    <div class="last-letter grain">
+      <span class="tape t1"></span><span class="tape t2"></span>
+      <p>hingga pada akhirnya, cara pandangku terhadapmu</p>
+      <p class="hl">sama seperti caraku memandang senja —</p>
+      <p>mungkin tidak selalu bisa singgah, tetapi selalu ada rasa kagum setiap kali melihatnya.</p>
+      <p class="lm-sign">— selalu</p>
     </div>
-    <p class="sunset-poem">
-      hingga pada akhirnya, cara pandangku terhadapmu
-      <span class="hl">sama seperti caraku memandang senja —</span>
-      mungkin tidak selalu bisa singgah, tetapi selalu ada rasa kagum setiap kali melihatnya.
-    </p>
   </div>
 
   <!-- kado + kembang api -->
@@ -827,7 +873,6 @@ body::before{
   <div class="letter-card grain" role="dialog" aria-modal="true" aria-label="Surat untuk kamu">
     <button class="lm-close" id="lmClose" aria-label="Tutup surat"><svg class="ic"><use href="#i-x"/></svg></button>
     <div class="stamp"><svg><use href="#i-heart"/></svg></div>
-    <h4 class="lm-title">Mekarlah</h4>
     <p class="poem">mekarlah di mana pun takdirmu menjatuhkanmu.</p>
     <p class="poem">tidak semua tanah akan menyambut akar dengan ramah, dan tidak setiap musim datang membawa cahaya.</p>
     <p class="poem">namun, tetaplah tumbuh, meski perlahan dan tanpa siapa pun yang menyaksikan.</p>
@@ -835,7 +880,7 @@ body::before{
     <div class="bloom-wrap" aria-hidden="true">
       <svg class="bloom" viewBox="0 0 24 24"><g fill="#e5637d"><circle cx="12" cy="5" r="3.2"/><circle cx="18.5" cy="9.5" r="3.2"/><circle cx="16" cy="17" r="3.2"/><circle cx="8" cy="17" r="3.2"/><circle cx="5.5" cy="9.5" r="3.2"/></g><circle cx="12" cy="11.5" r="2.6" fill="#f4c46a"/></svg>
     </div>
-    <p class="lm-sign">— tumbuh baik-baik ya, di mana pun kamu beradi</p>
+    <p class="lm-sign">— tumbuh baik-baik ya, di mana pun kamu berada</p>
   </div>
 </div>
 
@@ -902,18 +947,28 @@ function skyTick(now){
   }
   sctx.globalAlpha = 1;
   if(now > nextMeteor){
-    nextMeteor = now + 5500 + Math.random() * 8000;
-    meteors.push({ x: W * (0.1 + Math.random() * 0.7), y: H * (0.05 + Math.random() * 0.25),
-      vx: 5.5 + Math.random() * 3.5, vy: 2.2 + Math.random() * 1.6, life: 1 });
+    nextMeteor = now + 900 + Math.random() * 1600;
+    meteors.push({ x: W * (0.08 + Math.random() * 0.7), y: H * (0.04 + Math.random() * 0.22),
+      vx: 6 + Math.random() * 3.5, vy: 2.6 + Math.random() * 1.6, life: 1, warm: Math.random() < .5 });
   }
   for(let i = meteors.length - 1; i >= 0; i--){
     const m = meteors[i]; m.x += m.vx; m.y += m.vy; m.life -= 0.016;
     if(m.life <= 0){ meteors.splice(i, 1); continue; }
-    const g = sctx.createLinearGradient(m.x, m.y, m.x - m.vx * 10, m.y - m.vy * 10);
-    g.addColorStop(0, 'rgba(255,244,214,' + (0.9 * m.life) + ')');
-    g.addColorStop(1, 'rgba(255,244,214,0)');
-    sctx.strokeStyle = g; sctx.lineWidth = 1.6;
-    sctx.beginPath(); sctx.moveTo(m.x, m.y); sctx.lineTo(m.x - m.vx * 10, m.y - m.vy * 10); sctx.stroke();
+    const tailLen = 14;
+    const tx = m.x - m.vx * tailLen, ty = m.y - m.vy * tailLen;
+    const a = Math.max(0, m.life);
+    const g = sctx.createLinearGradient(m.x, m.y, tx, ty);
+    g.addColorStop(0, 'rgba(255,250,232,' + (0.95 * a) + ')');
+    g.addColorStop(.35, 'rgba(255,238,200,' + (0.55 * a) + ')');
+    g.addColorStop(1, 'rgba(255,238,200,0)');
+    sctx.strokeStyle = g; sctx.lineWidth = 1.8; sctx.lineCap = 'round';
+    sctx.beginPath(); sctx.moveTo(m.x, m.y); sctx.lineTo(tx, ty); sctx.stroke();
+    sctx.globalAlpha = a;
+    sctx.fillStyle = 'rgba(255,250,232,1)';
+    sctx.beginPath(); sctx.arc(m.x, m.y, 1.7, 0, 7); sctx.fill();
+    sctx.fillStyle = 'rgba(255,238,200,.35)';
+    sctx.beginPath(); sctx.arc(m.x, m.y, 4, 0, 7); sctx.fill();
+    sctx.globalAlpha = 1;
   }
   requestAnimationFrame(skyTick);
 }
